@@ -21,7 +21,7 @@
  - Tuy nhiên chúng tôi chưa tối ưu lắm lên cần thời gian và cộng đồng hỗ trợ bạn có thể báo cáo về địa chỉ telegram @tdungdepzai
 
 # Sử dụng
- - Nó được thiết kết quen thuộc với đa số người dùng
+ - Nó được thiết kết quen thuộc với đa số người dùng, các bạn có thể dùng theo ý muốn
 
    ```python
    form httpmas import requests
