@@ -15,8 +15,8 @@
 
 ## Báo cáo và thực tế
 - Theo phân tích đến từ tác giả MinhAnhs chúng tôi đã so sánh tốc độ cho ra kết quả
- - Nhanh hơn gấp 3 lần so với requests
- - Nhanh hơn gấp 1 lần so với aiohttp
+  - Nhanh hơn gấp 3 lần so với requests
+  - Nhanh hơn gấp 1 lần so với aiohttp
 - Kết quả này chưa hoàn toàn chuẩn vì còn dựa trên một số yếu điểm thực tế, vả lại nó cũng đang trong giai đoạn phát triển
 - Thắng aiohttp vì nó cũng chỉ dùng lượng requests bất đồng bộ nhỏ trong khi đó aiohttp thắng ở bất đồng bộ lượng lớn và nó có http2 (:>)
 - Các bạn cũng có thể test và báo cáo tốc độ về cho chúng tôi biết để chúng tôi nâng cấp hơn
