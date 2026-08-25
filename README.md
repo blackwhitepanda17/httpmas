@@ -16,11 +16,15 @@
  - Chúng tôi cũng phát triển và tối ưu nó để hoạt động ở môi trường wifi, mạng dữ liệu kém, chập chờn tốt hơn
 
 
-# Cài đặt
+## Cài đặt
  - Hiện tại chúng tôi đang phát triển nội bộ bạn có thể cài thủ công để dùng
  - Tuy nhiên chúng tôi chưa tối ưu lắm lên cần thời gian và cộng đồng hỗ trợ bạn có thể báo cáo về địa chỉ telegram @tdungdepzai
+ - Chúng tôi cũng sắp đẩy lên pypi, lệnh này chỉ để cho vui chứ chưa cài được
+   ```bash
+   pip install httpmas
+   ```
 
-# Sử dụng
+## Sử dụng
  - Nó được thiết kết quen thuộc với đa số người dùng, các bạn có thể dùng theo ý muốn
 
    ```python
