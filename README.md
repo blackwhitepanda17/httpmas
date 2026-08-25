@@ -18,6 +18,9 @@
   - Nhanh hơn ~3 lần so với requests
   - Nhanh hơn ~2 lần so với aiohttp
 - Kết quả này chưa hoàn toàn chuẩn vì còn dựa trên một số yếu điểm thực tế, vả lại nó cũng đang trong giai đoạn phát triển
+- Theo 1 số người dùng DEV họ cho thấy
+  - Nhỉnh hơn requests 1,7 đến 2 lần
+  - Nhỉnh hơn aiohttp 1,8 đến 2,1 
 - Thắng aiohttp vì nó cũng chỉ dùng lượng requests bất đồng bộ nhỏ trong khi đó aiohttp thắng ở bất đồng bộ lượng lớn và nó có http2 (:>)
 - Các bạn cũng có thể test và báo cáo tốc độ về cho chúng tôi biết để chúng tôi nâng cấp hơn
 
