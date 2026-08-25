@@ -47,6 +47,8 @@
    ```
 
    ```python
+   form httpmas import requests
+   
    url = "https://example.com"
    r = requests.port(url, json={'key': 'val'})
    ```
