@@ -13,6 +13,13 @@
 
 # Sử dụng
  - Nó được thiết kết quen thuộc với đa số người dùng
+
    ```python
    form httpmas import requests
+
+   r = requests.get("https://example.com/")
+   print(r.status_code, r.text)
+
+   #Tùy vào cách các bạn dùng
+   
    ```
