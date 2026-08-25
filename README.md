@@ -1,4 +1,4 @@
-#Tác giả : Nguyễn Tấn Dũng & MinhAnhs
+# Tác giả : Nguyễn Tấn Dũng & MinhAnhs
  ## Form VietNamese
 
 ## Tôi ở đây mang đến một giải pháp mới thay thế cho requests ở python
