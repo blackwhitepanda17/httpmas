@@ -11,7 +11,7 @@
  - Chúng tôi phát triển và tối ưu nó để hoạt động ở môi trường wifi, mạng dữ liệu kém, chập chờn tốt hơn
  - Kết nối nhanh hơn tăng tốc trong giao thức và giao tiếp giữa người dùng (client) và máy chủ (server)
  - Bảo mật hơn với TLS 1.3 (thực tế không cần vì sẵn có trong mọi môi trường nhưng chúng tôi vẫn ưu tiên làm)
-
+ - Chúng tôi cũng có 1 thư viện mang tên Dmas nhưng không lạ gì khi nó không được chia sẻ vì sản phẩm nội bộ
 
 ## Báo cáo và thực tế
 - Theo phân tích đến từ tác giả MinhAnhs chúng tôi đã so sánh tốc độ cho ra kết quả
