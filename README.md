@@ -7,14 +7,19 @@
 - Vì nếu giữ nội bộ chúng tôi phải nghĩ thêm giải pháp cho nó, chúng tôi lười lên chia sẻ lên pipy để tiện lợi hơn
 - Cơ bản là lười và cũng chẳng muốn cồng kềnh
 
-## Tôi ở đây mang đến một giải pháp mới thay thế cho requests ở python
- - Theo phân tích đến từ tác giả MinhAnhs chúng tôi đã so sánh tốc độ cho ra kết quả
+## Chúng tôi ở đây mang đến một giải pháp mới thay thế cho requests ở python
+ - Chúng tôi phát triển và tối ưu nó để hoạt động ở môi trường wifi, mạng dữ liệu kém, chập chờn tốt hơn
+ - Kết nối nhanh hơn tăng tốc trong giao thức và giao tiếp giữa người dùng (client) và máy chủ (server)
+ - Bảo mật hơn với TLS 1.3 (thực tế không cần vì sẵn có trong mọi môi trường nhưng chúng tôi vẫn ưu tiên làm)
+
+
+## Báo cáo và thực tế
+- Theo phân tích đến từ tác giả MinhAnhs chúng tôi đã so sánh tốc độ cho ra kết quả
  - Nhanh hơn gấp 3 lần so với requests
  - Nhanh hơn gấp 1 lần so với aiohttp
- - Kết quả này chưa hoàn toàn chuẩn vì còn dựa trên một số yếu điểm thực tế, vả lại nó cũng đang trong giai đoạn phát triển
- - Thắng aiohttp vì nó cũng chỉ dùng lượng requests bất đồng bộ nhỏ trong khi đó aiohttp thắng ở bất đồng bộ lượng lớn và nó có http2 (:>)
- - Chúng tôi cũng phát triển và tối ưu nó để hoạt động ở môi trường wifi, mạng dữ liệu kém, chập chờn tốt hơn
-
+- Kết quả này chưa hoàn toàn chuẩn vì còn dựa trên một số yếu điểm thực tế, vả lại nó cũng đang trong giai đoạn phát triển
+- Thắng aiohttp vì nó cũng chỉ dùng lượng requests bất đồng bộ nhỏ trong khi đó aiohttp thắng ở bất đồng bộ lượng lớn và nó có http2 (:>)
+- Các bạn cũng có thể test và báo cáo tốc độ về cho chúng tôi biết để chúng tôi nâng cấp hơn
 
 ## Cài đặt
  - Hiện tại chúng tôi đang phát triển nội bộ bạn có thể cài thủ công để dùng
