@@ -13,6 +13,7 @@
  - Nhanh hơn gấp 1 lần so với aiohttp
  - Kết quả này chưa hoàn toàn chuẩn vì còn dựa trên một số yếu điểm thực tế, vả lại nó cũng đang trong giai đoạn phát triển
  - Thắng aiohttp vì nó cũng chỉ dùng lượng requests bất đồng bộ nhỏ trong khi đó aiohttp thắng ở bất đồng bộ lượng lớn và nó có http2 (:>)
+ - Chúng tôi cũng phát triển và tối ưu nó để hoạt động ở môi trường wifi, mạng dữ liệu kém, chập chờn tốt hơn
 
 
 # Cài đặt
@@ -30,6 +31,11 @@
 
    #Tùy vào cách các bạn dùng
    
+   ```
+
+   ```python
+   url = "https://example.com"
+   r = requests.port(url, json={'key': 'val'})
    ```
 
 ## Lưu ý
