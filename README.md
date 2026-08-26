@@ -29,25 +29,18 @@
 
    ```bash
    pip install httpmas
-   ```
-
-- Kiểm tra bằng lệnh
-- 
-  ```bash
+   
+  # Kiểm tra bằng lệnh
+  
   httpmas --version
-  ```
-
-- Cần hỗ trợ
-
-  ```bash
+  
+  # Cần hỗ trợ
+  
   httpmas --help
+  # Cần xem thông tin
+
+  httpmas --info
   ```
-
-- Cần xem thông tin
-
- ```bash
-httpmas --info
-```
 
 ## Sử dụng
  - Nó được thiết kết quen thuộc với đa số người dùng, các bạn có thể dùng theo ý muốn
