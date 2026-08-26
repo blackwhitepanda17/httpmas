@@ -26,9 +26,28 @@
 
 ## Cài đặt
  - Hiện tại các bạn có thể cài bằng lệnh sau
+
    ```bash
    pip install httpmas
    ```
+
+- Kiểm tra bằng lệnh
+- 
+  ```bash
+  httpmas --version
+  ```
+
+- Cần hỗ trợ
+
+  ```bash
+  httpmas --help
+  ```
+
+- Cần xem thông tin
+
+ ```bash
+httpmas --info
+```
 
 ## Sử dụng
  - Nó được thiết kết quen thuộc với đa số người dùng, các bạn có thể dùng theo ý muốn
