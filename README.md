@@ -74,5 +74,5 @@
 
 # Nâng cấp
  - Hiện tại chúng tôi đang phát triển lên http/2 và nâng cao tốc độ xử lý hơn
- - 
+ - Cập nhật lại xử lý nhanh hơn đôi chút, tốt trong môi trường mạng yếu
 
