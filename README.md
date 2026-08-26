@@ -30,17 +30,17 @@
    ```bash
    pip install httpmas
    
-  # Kiểm tra bằng lệnh
+   # Kiểm tra bằng lệnh
   
-  httpmas --version
+   httpmas --version
   
-  # Cần hỗ trợ
+   # Cần hỗ trợ
   
-  httpmas --help
-  # Cần xem thông tin
+   httpmas --help
+   # Cần xem thông tin
 
-  httpmas --info
-  ```
+   httpmas --info
+   ```
 
 ## Sử dụng
  - Nó được thiết kết quen thuộc với đa số người dùng, các bạn có thể dùng theo ý muốn
