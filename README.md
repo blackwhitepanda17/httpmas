@@ -71,3 +71,8 @@
   - Tốc độ hiện tại cũng nhanh nhưng vẫn thủ dâm tinh thần vì test không đem lại thực tế
   - Tác giả cũng cần thời gian nâng cấp không thể đùng cái xịn ngay
   - Chúng tôi cũng đang tập trung cho tốc độ và ổn định
+
+# Nâng cấp
+ - Hiện tại chúng tôi đang phát triển lên http/2 và nâng cao tốc độ xử lý hơn
+ - 
+
