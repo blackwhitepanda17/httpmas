@@ -25,10 +25,7 @@
 - Các bạn cũng có thể test và báo cáo tốc độ về cho chúng tôi biết để chúng tôi nâng cấp hơn
 
 ## Cài đặt
- - Hiện tại chúng tôi đang phát triển nội bộ bạn có thể cài thủ công để dùng
- - Tuy nhiên chúng tôi chưa tối ưu lắm lên cần thời gian và cộng đồng hỗ trợ bạn có thể báo cáo về địa chỉ telegram @tdungdepzai
- - Chúng tôi cũng sắp đẩy lên pypi, lệnh này chỉ để cho vui chứ chưa cài được
-
+ - Hiện tại các bạn có thể cài bằng lệnh sau
    ```bash
    pip install httpmas
    ```
