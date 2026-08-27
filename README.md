@@ -46,30 +46,28 @@
 
 ## Sử dụng
  - Nó được thiết kết quen thuộc với đa số người dùng, các bạn có thể dùng theo ý muốn
-
+ 
    ```python
    form httpmas import requests
 
    r = requests.get("https://example.com/")
    print(r.status_code, r.text)
 
-   #Tùy vào cách các bạn dùng
-   
-   ```
-
-   ```python
-   form httpmas import requests
-   
    url = "https://example.com"
    r = requests.port(url, json={'key': 'val'})
    ```
 
-   - Đối với HTTP/2
+ - Đối với HTTP/2
     ```python
     form httpmas import adhttp #Có thể alias tùy muốn
 
     r = adhttp.get("https://example.com/")
     print(r.status_code, r.text)
+
+    url = "https://example.com"
+    r = adhttp.port(url, json={'key': 'val'})
+
+    # Đối với HTTP/2 chúng tôi chưa thật sự tối ưu nếu chẳng may bị gì chúng tôi chịu :))
     ```
 
 ## Lưu ý
@@ -84,4 +82,4 @@
 # Nâng cấp và cập nhật tình trạng
  - Hiện tại chúng tôi đang phát triển lên http/2 và nâng cao tốc độ xử lý hơn
  - Cập nhật lại xử lý nhanh hơn đôi chút, tốt trong môi trường mạng yếu
- - Xử lý lỗi logic lõi tăng cường tốc độ, sức mạnh
+ - Xử lý lỗi logic lõi tăng cường tốc độ, sức mạnh chịu tải
