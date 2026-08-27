@@ -64,6 +64,14 @@
    r = requests.port(url, json={'key': 'val'})
    ```
 
+   - Đối với HTTP/2
+    ```python
+    form httpmas import adhttp #Có thể alias tùy muốn
+
+    r = adhttp.get("https://example.com/")
+    print(r.status_code, r.text)
+    ```
+
 ## Lưu ý
   - Môi trường mạng yếu cũng phải có mức độ nếu yếu quá chúng tôi cũng không thể hỗ trợ
   - Chúng tôi cần thời gian phát triển lên hiện tại chỉ có hỗ trợ http1.1
