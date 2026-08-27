@@ -5,8 +5,8 @@
 - Thư viện này thuộc bản quyền của chúng tôi, chúng tôi cũng là tác giả của PyMaKaizu
 - Thư viện này được tôi sử dụng trong PyMaKaizu để giải quyết vấn đề tốc độ kết nối đến server
 - Vì nếu giữ nội bộ chúng tôi phải nghĩ thêm giải pháp cho nó, chúng tôi lười lên chia sẻ lên pipy để tiện lợi hơn
-- Cơ bản là lười và cũng chẳng muốn cồng kềnh
-- Hiện tại bản chia sẻ này các bạn có thể tải về để nâng cấp và không mạnh bằng việc cài qua pip vì chúng tôi lười cập nhật
+- Cơ bản là lười và cũng chẳng muốn cồng kềnh để xử lý thêm mã nguồn này
+- Hiện tại bản chia sẻ này các bạn có thể tải về để nâng cấp và không mạnh bằng việc cài qua pip vì chúng tôi lười cập nhật trên github
 
 ## Chúng tôi ở đây mang đến một giải pháp mới thay thế cho requests ở python
  - Chúng tôi phát triển và tối ưu nó để hoạt động ở môi trường wifi, mạng dữ liệu kém, chập chờn tốt hơn
@@ -76,4 +76,4 @@
 # Nâng cấp và cập nhật tình trạng
  - Hiện tại chúng tôi đang phát triển lên http/2 và nâng cao tốc độ xử lý hơn
  - Cập nhật lại xử lý nhanh hơn đôi chút, tốt trong môi trường mạng yếu
- - Xử lý lỗi logic lõi
+ - Xử lý lỗi logic lõi tăng cường tốc độ, sức mạnh
