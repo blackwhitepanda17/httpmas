@@ -1,6 +1,8 @@
 # Tác giả : Nguyễn Tấn Dũng & MinhAnhs
  ## ``Form VietNamese``
 
+[![PyPI version](https://img.shields.io/pypi/v/httpmas.svg)](https://pypi.org/project/httpmas/)
+
 ## Cài đặt
  - Hiện tại các bạn có thể cài bằng lệnh sau
 
