@@ -52,14 +52,12 @@
 - Theo 1 số người dùng DEV họ cho thấy
   - Nhỉnh hơn requests 1,7 đến 2 lần
   - Nhỉnh hơn aiohttp 1,8 đến 2,1 
-- Thắng aiohttp vì nó cũng chỉ dùng lượng requests bất đồng bộ nhỏ trong khi đó aiohttp thắng ở bất đồng bộ lượng lớn và nó có http2 (:>)
+- Thắng aiohttp vì nó cũng chỉ dùng lượng requests bất đồng bộ nhỏ trong khi đó aiohttp thắng ở bất đồng bộ lượng lớn và nó có http2 hoặc thắng được thật(:>)
 - Các bạn cũng có thể test và báo cáo tốc độ về cho chúng tôi biết để chúng tôi nâng cấp hơn
 
 ## Lưu ý
   - Môi trường mạng yếu cũng phải có mức độ nếu yếu quá chúng tôi cũng không thể hỗ trợ
   - Chúng tôi cần thời gian phát triển lên hiện tại chỉ có hỗ trợ http1.1
-  - Có lẽ phần mã nguồn chúng tôi sẽ độc quyền hoặc không
-  - Tác giả cũng cần thời gian nâng cấp không thể đùng cái xịn ngay
   - Chúng tôi cũng đang tập trung cho tốc độ và ổn định
 
 # Nâng cấp và cập nhật tình trạng
