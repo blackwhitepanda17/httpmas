@@ -39,15 +39,10 @@
    httpmas --info
    ```
 
-### Phát triển bởi PyMaKaizu
-- Thư viện này thuộc bản quyền của chúng tôi, chúng tôi cũng là tác giả của PyMaKaizu
-- Thư viện này được tôi sử dụng trong PyMaKaizu để giải quyết vấn đề tốc độ kết nối đến server của mình
-- Vì nếu giữ nội bộ chúng tôi phải nghĩ thêm giải pháp cho nó, chúng tôi lười lên chia sẻ lên pypi để tiện lợi hơn
-- Cơ bản là lười và cũng chẳng muốn cồng kềnh để xử lý thêm mã nguồn này
-- Hiện tại bản chia sẻ này các bạn có thể tải về để nâng cấp và không mạnh bằng việc cài qua pip vì chúng tôi lười cập nhật trên github
-
-## Chúng tôi ở đây mang đến một giải pháp mới thay thế cho requests ở python
-- Chúng tôi "nấu" trên socket để giảm bớt các tầng nó phải đi qua
+### Phát triển bởi tôi
+- Thư viện này được tôi "nấu" trên nền socket sẵn có
+- Chúng tôi tận dùng socket để giảm tải các tầng nó đi qua tạo ra tốc độ nhanh chóng hơn
+- Cũng một phần giải quyết tốc độ cho server của mình
 
 ## Báo cáo và thực tế
 - Theo phân tích đến từ tác giả MinhAnhs chúng tôi đã so sánh tốc độ cho ra kết quả
@@ -59,7 +54,6 @@
   - Nhỉnh hơn aiohttp 1,8 đến 2,1 
 - Thắng aiohttp vì nó cũng chỉ dùng lượng requests bất đồng bộ nhỏ trong khi đó aiohttp thắng ở bất đồng bộ lượng lớn và nó có http2 (:>)
 - Các bạn cũng có thể test và báo cáo tốc độ về cho chúng tôi biết để chúng tôi nâng cấp hơn
-
 
 ## Lưu ý
   - Môi trường mạng yếu cũng phải có mức độ nếu yếu quá chúng tôi cũng không thể hỗ trợ
