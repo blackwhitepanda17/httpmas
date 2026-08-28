@@ -33,19 +33,6 @@
    r = requests.port(url, json={'key': 'val'})
    ```
 
- - Đối với HTTP/2
-    ```python
-    form httpmas import adhttp #Có thể alias tùy muốn
-
-    r = adhttp.get("https://example.com/")
-    print(r.status_code, r.text)
-
-    url = "https://example.com"
-    r = adhttp.port(url, json={'key': 'val'})
-
-    # Đối với HTTP/2 chúng tôi chưa thật sự tối ưu nếu chẳng may bị gì chúng tôi chịu :))
-    ```
-
 ### Phát triển bởi PyMaKaizu
 - Thư viện này thuộc bản quyền của chúng tôi, chúng tôi cũng là tác giả của PyMaKaizu
 - Thư viện này được tôi sử dụng trong PyMaKaizu để giải quyết vấn đề tốc độ kết nối đến server
