@@ -80,6 +80,5 @@
   - Chúng tôi cũng đang tập trung cho tốc độ và ổn định
 
 # Nâng cấp và cập nhật tình trạng
- - Hiện tại chúng tôi đang phát triển lên http/2 và nâng cao tốc độ xử lý hơn
  - Cập nhật lại xử lý nhanh hơn đôi chút, tốt trong môi trường mạng yếu
  - Xử lý lỗi logic lõi tăng cường tốc độ, sức mạnh chịu tải
