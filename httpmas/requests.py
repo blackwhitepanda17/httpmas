@@ -1,12 +1,4 @@
-"""
-RequestManager - Quản lý và điều phối toàn bộ HTTP request đồng bộ.
-Nâng cấp:
-Accept-Encoding: gzip, deflate.
-Tự giải nén body.
-Dùng parser trả should_close.
-Request builder cache header prefix.
-Request-level retry cho stale pooled connections.
-"""
+"""RequestManager - Quản lý và điều phối toàn bộ HTTP request đồng bộ."""
 
 import socket
 import time
@@ -24,7 +16,6 @@ from .response import Response
 
 class _URLParser:
     """Phân tích URL thủ công, không dùng urllib."""
-
     def __init__(self, url: str) -> None:
         self.raw = url.strip()
         self.scheme = ""
@@ -121,7 +112,6 @@ class _URLParser:
 
 class _FormEncoder:
     """Mã hóa dữ liệu form, không dùng urllib."""
-
     _SAFE = set(
         "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
         "abcdefghijklmnopqrstuvwxyz"
@@ -179,7 +169,6 @@ def _decompress_body(headers: Dict[str, str], body: bytes) -> bytes:
 
 class RequestManager:
     """Quản lý HTTP request đồng bộ."""
-
     DEFAULT_HEADERS = {
         "User-Agent": "httpmas/1.0 (Socket-Based)",
         "Accept": "*/*",
@@ -190,8 +179,6 @@ class RequestManager:
     _HEADER_PREFIX_CACHE: Dict[str, bytes] = {}
     _HEADER_CACHE_MAX = 512
     _HEADER_LOCK = threading.Lock()
-
-    # FIX: Phương thức an toàn để retry (idempotent).
     _RETRYABLE_METHODS = {"GET", "HEAD", "OPTIONS"}
 
     def __init__(
@@ -367,13 +354,7 @@ class RequestManager:
         params: Optional[Dict[str, str]] = None,
         timeout: Optional[float] = None
     ) -> Response:
-        """Thực thi HTTP request hoàn chỉnh.
-
-        FIX: Thêm request-level retry cho stale pooled connections.
-        Khi pooled socket chết mà health check không phát hiện,
-        sendall/recv sẽ fail. Discard socket và retry với connection mới.
-        Chỉ retry cho idempotent methods (GET/HEAD/OPTIONS).
-        """
+        """Thực thi HTTP request hoàn chỉnh."""
         start_time = time.monotonic()
         parsed = _URLParser(url)
         path = parsed.full_path
@@ -399,10 +380,7 @@ class RequestManager:
         effective_timeout = (
             timeout if timeout is not None else self._timeout
         )
-
-        # FIX: Request-level retry.
-        # Attempt 0: thử bình thường (có thể dùng pooled socket).
-        # Attempt 1: nếu fail vì stale socket, tạo connection mới.
+        
         method_upper = method.upper()
         max_attempts = (
             2 if method_upper in self._RETRYABLE_METHODS else 1
@@ -468,7 +446,6 @@ class RequestManager:
                 self._discard_sock(sock)
                 last_exc = exc
 
-                # FIX: Retry nếu là lỗi kết nối và còn attempt.
                 if attempt + 1 < max_attempts:
                     continue
 
@@ -490,7 +467,6 @@ class RequestManager:
                 self._discard_sock(sock)
                 last_exc = exc
 
-                # FIX: Retry nếu là lỗi kết nối và còn attempt.
                 if attempt + 1 < max_attempts:
                     continue
 
@@ -500,7 +476,6 @@ class RequestManager:
                     print_error=False,
                 )
 
-        # Không nên tới đây, nhưng phòng hờ.
         if last_exc is not None:
             raise last_exc
 
@@ -552,11 +527,6 @@ class RequestManager:
             self._engine.close_all()
         except Exception:
             pass
-
-
-# ============================================================
-# API MỨC MODULE - GIỐNG HỆT THƯ VIỆN REQUESTS GỐC
-# ============================================================
 
 _default_manager = RequestManager()
 _default_async_manager = None
