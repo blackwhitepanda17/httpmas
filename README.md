@@ -2,6 +2,10 @@
  ## ``Form VietNamese``
 
 [![PyPI version](https://img.shields.io/pypi/v/httpmas.svg)](https://pypi.org/project/httpmas/)
+[![Python Version](https://img.shields.io/pypi/pyversions/httpmas.svg)](https://pypi.org/project/httpmas/)
+[![Downloads](https://img.shields.io/pypi/dm/httpmas.svg)](https://pypi.org/project/httpmas/)
+[![Contributors](https://img.shields.io/github/contributors/dmasntd/httpmas.svg)](https://github.com/dmasntd/httpmas/graphs/contributors)
+[![Docs](https://img.shields.io/badge/docs-passing-brightgreen.svg)](https://github.com/dmasntd/httpmas)
 
 ## Cài đặt
  - Hiện tại các bạn có thể cài bằng lệnh sau
