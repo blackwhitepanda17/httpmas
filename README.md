@@ -75,3 +75,9 @@
 # Liên hệ
 - Bạn có thể yêu cầu tham gia dự án hoặc báo cáo hãy nhắn qua telegram @manhscuti
 - 
+
+---
+
+<p align="center">
+  <img src="image.png" alt="Image" width="400">
+</p>
