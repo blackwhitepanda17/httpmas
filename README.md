@@ -7,6 +7,19 @@
 [![Contributors](https://img.shields.io/github/contributors/dmasntd/httpmas.svg)](https://github.com/dmasntd/httpmas/graphs/contributors)
 [![Docs](https://img.shields.io/badge/docs-passing-brightgreen.svg)](https://github.com/dmasntd/httpmas)
 
+## Sử dụng
+ - Nó được thiết kết quen thuộc với đa số người dùng, các bạn có thể dùng theo ý muốn
+ 
+   ```python
+   form httpmas import requests
+
+   r = requests.get("https://example.com/")
+   print(r.status_code, r.text)
+
+   url = "https://example.com"
+   r = requests.port(url, json={'key': 'val'})
+   ```
+
 ## Cài đặt
  - Hiện tại các bạn có thể cài bằng lệnh sau
 
@@ -24,19 +37,6 @@
    # Cần xem thông tin
 
    httpmas --info
-   ```
-
-## Sử dụng
- - Nó được thiết kết quen thuộc với đa số người dùng, các bạn có thể dùng theo ý muốn
- 
-   ```python
-   form httpmas import requests
-
-   r = requests.get("https://example.com/")
-   print(r.status_code, r.text)
-
-   url = "https://example.com"
-   r = requests.port(url, json={'key': 'val'})
    ```
 
 ### Phát triển bởi PyMaKaizu
