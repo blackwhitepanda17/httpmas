@@ -5,10 +5,6 @@ Mục tiêu:
 - Giảm copy dữ liệu liên tục.
 - Dùng bytearray + offset tracking.
 - Dùng cho HTTP parser và các thành phần đọc buffer.
-
-FIX: Loại bỏ hoàn toàn memoryview trong internal implementation.
-FIX: _maybe_compact() tạo bytearray MỚI thay vì resize bytearray cũ.
-     Tránh lỗi "Existing exports of data: object cannot be re-sized".
 """
 
 from typing import Optional
