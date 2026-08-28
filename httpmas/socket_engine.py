@@ -1,14 +1,4 @@
-"""
-Tầng xử lý socket TCP cho httpmas.
-Nâng cấp:
-Pool sync 32 connection/host.
-Dùng DNSCache.
-Ưu tiên IPv4.
-Socket buffer 256KB (phù hợp Android kernel).
-TCP_NODELAY + SO_KEEPALIVE.
-Keep-alive reuse.
-Health check nhẹ khi lấy connection từ pool.
-"""
+"""Tầng xử lý socket TCP cho httpmas."""
 
 import socket
 import time
@@ -24,11 +14,7 @@ from .dns import DNSCache
 
 class SocketEngine:
     """Quản lý kết nối TCP socket với hỗ trợ keep-alive."""
-
     MAX_POOL_PER_HOST = 32
-    # FIX: 256KB thay vì 4MB.
-    # Android kernel TCP buffer thường 128-256KB.
-    # Set 4MB bị kernel ignore, mất thêm syscall.
     SOCKET_BUFFER = 256 * 1024
 
     def __init__(
@@ -211,15 +197,7 @@ class SocketEngine:
         self,
         key: Tuple[str, int, bool],
     ) -> Optional[socket.socket]:
-        """Lấy socket nhàn rỗi từ pool.
-
-        FIX: Giảm syscall overhead.
-        - Bỏ select() cho SSLSocket (syscall nặng nhất trên Android).
-        - Giữ fileno() + pending() check cho SSL (nhẹ, không syscall).
-        - Giữ MSG_PEEK cho socket thường (1 syscall).
-        - Request-level retry trong requests.py làm safety net
-          cho các connection chết mà health check không phát hiện.
-        """
+        """Lấy socket nhàn rỗi từ pool."""
         with self._lock:
             conns = self._pool.get(key, [])
 
@@ -236,11 +214,6 @@ class SocketEngine:
 
                 try:
                     if isinstance(sock, _ssl.SSLSocket):
-                        # FIX: Bỏ select() cho SSLSocket.
-                        # select() là syscall nặng nhất trên Android.
-                        # Chỉ giữ pending() check (không syscall).
-                        # Request-level retry trong requests.py
-                        # sẽ xử lý nếu connection thực sự chết.
                         if sock.pending() > 0:
                             self._close_socket(sock)
                             continue
@@ -249,7 +222,6 @@ class SocketEngine:
                         return sock
 
                     else:
-                        # Socket thường: giữ MSG_PEEK (1 syscall nhẹ).
                         sock.settimeout(0.0)
 
                         try:
