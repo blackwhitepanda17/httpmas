@@ -1,12 +1,4 @@
-"""
-Trình phân tích cú pháp HTTP response.
-
-Nâng cấp:
-- Đọc cả header block rồi decode 1 lần, giảm overhead decode từng dòng.
-- Đọc socket block lớn 1MB/lần, giảm syscall.
-- Trả thêm should_close để xử lý keep-alive đúng.
-- Chunked body gom bằng list rồi join.
-"""
+"""Trình phân tích cú pháp HTTP response."""
 
 import socket
 from typing import Dict, Tuple
@@ -16,7 +8,6 @@ from .exceptions import RequestsError
 
 class HTTPParser:
     """Phân tích HTTP response từ luồng byte nhận qua socket."""
-
     def __init__(self, sock: socket.socket) -> None:
         """Khởi tạo parser với socket nguồn."""
         self._sock = sock
@@ -245,7 +236,6 @@ class HTTPParser:
             if chunk_data:
                 chunks.append(chunk_data)
 
-            # Đọc CRLF sau chunk data.
             self._read_line()
 
         return b"".join(chunks)
