@@ -1,21 +1,5 @@
 """
 AsyncEngine - Xử lý HTTP request bất đồng bộ.
-
-Nâng cấp:
-- AsyncConnectionPool + HostPool.
-- Per-host semaphore, hạn chế handshake storm.
-- Keep-alive timeout + health check.
-- Retry transient cho GET/HEAD/OPTIONS với deadline tracking.
-- DNS single-flight.
-- gzip/deflate/br nếu có brotli.
-- Parser trả should_close.
-- Không block event loop.
-- Không dùng requests/aiohttp làm backend.
-
-FIX REGRESSION:
-- Deadline tracking: không nhân đôi timeout khi retry.
-- Không retry timeout (kể cả reused) để tránh p99 tăng.
-- Cleanup idle theo interval thay vì mỗi lần acquire.
 """
 
 import asyncio
@@ -151,7 +135,6 @@ class ErrorDispatcher:
 
 class _HostPool:
     """Pool cho một host:port:protocol."""
-
     __slots__ = ("idle", "active", "semaphore", "max_keepalive")
 
     def __init__(
@@ -166,13 +149,7 @@ class _HostPool:
 
 
 class AsyncConnectionPool:
-    """Connection pool async.
-
-    FIX REGRESSION:
-    - Cleanup idle theo interval (5s) thay vì mỗi lần acquire.
-    - Giữ nguyên semaphore + LIFO.
-    """
-
+    """Connection pool async."""
     CLEANUP_INTERVAL = 5.0
 
     def __init__(
@@ -249,11 +226,10 @@ class AsyncConnectionPool:
                 continue
 
             keep.append(item)
-
         hp.idle = keep
 
     def _maybe_cleanup_all(self) -> None:
-        """FIX: Cleanup theo interval thay vì mỗi lần acquire."""
+        """Cleanup theo interval thay vì mỗi lần acquire."""
         now = time.monotonic()
         if now - self._last_cleanup < self.CLEANUP_INTERVAL:
             return
@@ -289,10 +265,8 @@ class AsyncConnectionPool:
             )
 
         try:
-            # FIX: Cleanup theo interval, không phải mỗi lần acquire.
             self._maybe_cleanup_all()
 
-            # LIFO: connection nóng được ưu tiên.
             while hp.idle:
                 reader, writer, _ = hp.idle.pop()
 
@@ -364,7 +338,6 @@ class AsyncConnectionPool:
                 _close_writer_now(writer)
 
             hp.idle.clear()
-
         self._hosts.clear()
 
 
@@ -565,7 +538,6 @@ class AsyncSocketEngine:
 
 class AsyncHTTPParser:
     """Phân tích HTTP response từ asyncio StreamReader."""
-
     __slots__ = ("_reader", "_method")
 
     def __init__(self, reader, method: str = "GET") -> None:
@@ -768,13 +740,7 @@ class AsyncHTTPParser:
 
 
 class AsyncRequestManager:
-    """Quản lý HTTP request bất đồng bộ.
-
-    FIX REGRESSION:
-    - Deadline tracking: tổng thời gian không vượt timeout.
-    - Không retry timeout (kể cả reused).
-    - Chỉ retry stale connection (EOF/reset trên reused socket).
-    """
+    """Quản lý HTTP request bất đồng bộ."""
 
     DEFAULT_HEADERS = {
         "User-Agent": "httpmas/1.0 (Async-Socket-Based)",
@@ -943,20 +909,10 @@ class AsyncRequestManager:
         exc: Exception,
         reused: bool,
     ) -> bool:
-        """Quyết định có retry transient hay không.
-
-        FIX REGRESSION:
-        - KHÔNG retry timeout (kể cả reused).
-          Trước đây: return reused cho TimeoutError
-          → retry sau 15s timeout → tổng 30s → p99 = 31s.
-        - Chỉ retry khi reused connection bị stale
-          (EOF/reset, không phải timeout).
-        """
+        """Quyết định có retry transient hay không."""
         if method not in cls.SAFE_RETRY_METHODS:
             return False
 
-        # FIX: Không retry timeout. Timeout là timeout.
-        # Retry timeout chỉ nhân đôi latency.
         if isinstance(exc, asyncio.TimeoutError):
             return False
 
@@ -970,11 +926,9 @@ class AsyncRequestManager:
         ):
             msg = str(exc).lower()
 
-            # Không retry nếu lỗi là timeout bên trong _TransientError.
             if "timeout" in msg or "thời gian chờ" in msg:
                 return False
 
-            # Chỉ retry khi reused connection bị stale.
             return reused
 
         if isinstance(exc, OSError):
@@ -989,11 +943,7 @@ class AsyncRequestManager:
         params: Optional[Dict[str, str]] = None,
         timeout: Optional[float] = None
     ) -> Response:
-        """Thực thi HTTP request bất đồng bộ hoàn chỉnh.
-
-        FIX REGRESSION: Deadline tracking.
-        Tổng thời gian tất cả attempts không vượt effective_timeout.
-        """
+        """Thực thi HTTP request bất đồng bộ hoàn chỉnh."""
         method_upper = method.upper()
 
         parsed = _URLParser(url)
@@ -1027,8 +977,6 @@ class AsyncRequestManager:
             else 1
         )
 
-        # FIX: Deadline tracking.
-        # Tổng thời gian tất cả attempts không vượt effective_timeout.
         deadline = time.monotonic() + effective_timeout
 
         last_exc: Optional[Exception] = None
@@ -1038,11 +986,9 @@ class AsyncRequestManager:
             writer = None
             reused = False
 
-            # FIX: Tính thời gian còn lại trước mỗi attempt.
             remaining = deadline - time.monotonic()
 
             if remaining <= 0.5:
-                # Không đủ thời gian cho attempt mới.
                 break
 
             try:
@@ -1052,7 +998,7 @@ class AsyncRequestManager:
                     parsed.hostname,
                     parsed.effective_port,
                     parsed.use_tls,
-                    remaining,  # FIX: pass remaining, không phải full timeout
+                    remaining,
                 )
 
                 return await self._send_and_parse(
@@ -1115,8 +1061,6 @@ class AsyncRequestManager:
                 if attempt + 1 >= attempts:
                     raise self._make_final_error(exc)
 
-                # FIX: Không sleep cho reused stale connection.
-                # Retry ngay với thời gian còn lại.
                 if reused:
                     await asyncio.sleep(0.01)
                 else:
