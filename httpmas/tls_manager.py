@@ -1,12 +1,4 @@
-"""
-Quản lý TLS/SSL cho httpmas.
-
-Nâng cấp:
-- SSLContext singleton thread-safe.
-- Không gọi load_default_certs() thừa.
-- Giữ verify certificate bắt buộc.
-- Cố gắng bật session cache nếu Python/OpenSSL hỗ trợ.
-"""
+"""Quản lý TLS/SSL cho httpmas."""
 
 import ssl
 import socket
@@ -41,10 +33,6 @@ class TLSManager:
         context.check_hostname = True
         context.verify_mode = ssl.CERT_REQUIRED
 
-        # Không gọi load_default_certs() vì create_default_context()
-        # đã nạp CA mặc định rồi.
-
-        # Nếu Python/OpenSSL expose session cache client, bật nó.
         try:
             mode = getattr(ssl, "SESS_CACHE_CLIENT", None)
             if mode is not None and hasattr(
