@@ -82,3 +82,8 @@
 # Nâng cấp và cập nhật tình trạng
  - Cập nhật lại xử lý nhanh hơn đôi chút, tốt trong môi trường mạng yếu
  - Xử lý lỗi logic lõi tăng cường tốc độ, sức mạnh chịu tải
+
+
+# Liên hệ
+- Bạn có thể yêu cầu tham gia dự án hoặc báo cáo hãy nhắn qua telegram @manhscuti
+- 
