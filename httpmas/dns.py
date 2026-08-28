@@ -1,12 +1,4 @@
-"""
-DNS cache nội bộ cho httpmas.
-
-Nâng cấp:
-- Cache DNS sync/async.
-- Async single-flight: nhiều request cùng host chỉ chờ 1 kết quả resolve.
-- Không lock toàn cục gây serialize.
-- Có helper ưu tiên IPv4 để giảm rủi ro IPv6 chậm/lỗi.
-"""
+"""DNS cache nội bộ cho httpmas."""
 
 import asyncio
 import socket
@@ -40,12 +32,8 @@ class DNSCache:
         """
         self._ttl = float(ttl)
         self._max_entries = int(max_entries)
-
         self._lock = threading.RLock()
         self._cache: Dict[str, Tuple[float, List]] = {}
-
-        # Key: (event_loop, hostname)
-        # Mỗi loop có inflight future riêng để tránh cross-loop await.
         self._async_inflight: Dict[Tuple[Any, str], asyncio.Future] = {}
 
     @staticmethod
@@ -212,7 +200,7 @@ class DNSCache:
 
             return self._filter_addrinfos(infos, family)
 
-        # Kiểm tra cache trước.
+        """Kiểm tra cache trước."""
         infos = self._get_cached(key)
         if infos is not None:
             return self._filter_addrinfos(infos, family)
@@ -221,7 +209,7 @@ class DNSCache:
         inflight_key = (loop, key)
 
         with self._lock:
-            # Kiểm tra lại cache trong lock để tránh race.
+            """Kiểm tra lại cache trong lock để tránh race."""
             infos = self._get_cached(key)
             if infos is not None:
                 return self._filter_addrinfos(infos, family)
