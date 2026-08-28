@@ -41,16 +41,13 @@
 
 ### Phát triển bởi PyMaKaizu
 - Thư viện này thuộc bản quyền của chúng tôi, chúng tôi cũng là tác giả của PyMaKaizu
-- Thư viện này được tôi sử dụng trong PyMaKaizu để giải quyết vấn đề tốc độ kết nối đến server
-- Vì nếu giữ nội bộ chúng tôi phải nghĩ thêm giải pháp cho nó, chúng tôi lười lên chia sẻ lên pipy để tiện lợi hơn
+- Thư viện này được tôi sử dụng trong PyMaKaizu để giải quyết vấn đề tốc độ kết nối đến server của mình
+- Vì nếu giữ nội bộ chúng tôi phải nghĩ thêm giải pháp cho nó, chúng tôi lười lên chia sẻ lên pypi để tiện lợi hơn
 - Cơ bản là lười và cũng chẳng muốn cồng kềnh để xử lý thêm mã nguồn này
 - Hiện tại bản chia sẻ này các bạn có thể tải về để nâng cấp và không mạnh bằng việc cài qua pip vì chúng tôi lười cập nhật trên github
 
 ## Chúng tôi ở đây mang đến một giải pháp mới thay thế cho requests ở python
- - Chúng tôi phát triển và tối ưu nó để hoạt động ở môi trường wifi, mạng dữ liệu kém, chập chờn tốt hơn
- - Kết nối nhanh hơn tăng tốc trong giao thức và giao tiếp giữa người dùng (client) và máy chủ (server)
- - Bảo mật hơn với TLS 1.3 (thực tế không cần vì sẵn có trong mọi môi trường nhưng chúng tôi vẫn ưu tiên làm)
- - Chúng tôi cũng có 1 thư viện mang tên Dmas nhưng không lạ gì khi nó không được chia sẻ vì sản phẩm nội bộ
+- Chúng tôi "nấu" trên socket để giảm bớt các tầng nó phải đi qua
 
 ## Báo cáo và thực tế
 - Theo phân tích đến từ tác giả MinhAnhs chúng tôi đã so sánh tốc độ cho ra kết quả
