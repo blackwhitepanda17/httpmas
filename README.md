@@ -11,7 +11,7 @@
  - Nó được thiết kết quen thuộc với đa số người dùng, các bạn có thể dùng theo ý muốn
  
    ```python
-   form httpmas import requests
+   from httpmas import requests
 
    r = requests.get("https://example.com/")
    print(r.status_code, r.text)
