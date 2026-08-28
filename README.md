@@ -1,10 +1,6 @@
 # Tác giả : Nguyễn Tấn Dũng & MinhAnhs
  ## ``Form VietNamese``
 
-.. image:: https://img.shields.io/pypi/pyversions/aioquic.svg
-   :target: https://pypi.python.org/pypi/aioquic
-   :alt: Python versions
-
 ### Phát triển bởi PyMaKaizu
 - Thư viện này thuộc bản quyền của chúng tôi, chúng tôi cũng là tác giả của PyMaKaizu
 - Thư viện này được tôi sử dụng trong PyMaKaizu để giải quyết vấn đề tốc độ kết nối đến server
