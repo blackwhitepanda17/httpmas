@@ -67,9 +67,7 @@
 ## Lưu ý
   - Môi trường mạng yếu cũng phải có mức độ nếu yếu quá chúng tôi cũng không thể hỗ trợ
   - Chúng tôi cần thời gian phát triển lên hiện tại chỉ có hỗ trợ http1.1
-  - Hiện tại chưa đưa lên pipy vì đang test nội bộ
   - Có lẽ phần mã nguồn chúng tôi sẽ độc quyền hoặc không
-  - Tốc độ hiện tại cũng nhanh nhưng vẫn thủ dâm tinh thần vì test không đem lại thực tế
   - Tác giả cũng cần thời gian nâng cấp không thể đùng cái xịn ngay
   - Chúng tôi cũng đang tập trung cho tốc độ và ổn định
 
@@ -80,7 +78,6 @@
 
 # Liên hệ
 - Bạn có thể yêu cầu tham gia dự án hoặc báo cáo hãy nhắn qua telegram @manhscuti
-- 
 
 ---
 
