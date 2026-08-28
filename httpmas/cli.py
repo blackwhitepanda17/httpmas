@@ -1,9 +1,4 @@
-"""
-Giao diện dòng lệnh (CLI) cho httpmas.
-Banner cyberpunk với logo ASCII gradient,
-khung bảng neon căn chỉnh chính xác, màu viền đồng bộ 4 góc.
-"""
-
+#By Nguyễn Tấn Dũng
 import os
 import re
 import sys
