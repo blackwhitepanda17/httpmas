@@ -12,12 +12,14 @@
  
    ```python
    from httpmas import requests
+   from httpmas import asyncio
+   from httpmas import RequestsError
 
    r = requests.get("https://example.com/")
    print(r.status_code, r.text)
 
    url = "https://example.com"
-   r = requests.port(url, json={'key': 'val'})
+   r = requests.post(url, json={'key': 'val'})
    ```
 
 ## Cài đặt
