@@ -39,6 +39,8 @@
 
    ```
 
+### Lưu ý 1 chút hiện trên github này chúng tôi chia sẻ là phiên bản đời thấp 2.9.18 dây là bản cũ chúng tôi chia sẻ để các bạn có thể hiểu cách chúng tôi hoạt động, vẫn lên ưu tiên cài ``pip install httpmas`` cách sử dụng của nó thật sự rất thuần requests
+
 ## Cài đặt
  - Hiện tại các bạn có thể cài bằng lệnh sau
 
