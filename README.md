@@ -23,6 +23,20 @@
    # Bất đồng bộ
    from httpmas import asyncio
 
+   async def main():
+    # Auto raise HTTPError khi server trả 4xx/5xx
+    r = await asyncio.requests.get("https://httpbin.org/json")
+    print(r.status_code, r.json())
+
+    # Disable auto-raise
+    r = await asyncio.requests.get(
+        "https://httpbin.org/status/404",
+        raise_on_error=False,
+    )
+    print(r.status_code)  # 404, không raise
+
+   asyncio.run(main())
+
    # Import xử lý lỗi
    from httpmas import RequestsError
    
