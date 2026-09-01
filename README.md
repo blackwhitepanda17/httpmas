@@ -13,7 +13,6 @@
  
    ```python
    from httpmas import requests
-   from httpmas import asyncio
 
    r = requests.get("https://example.com/")
    print(r.status_code, r.text)
@@ -21,6 +20,10 @@
    url = "https://example.com"
    r = requests.post(url, json={'key': 'val'})
 
+   # Bất đồng bộ
+   from httpmas import asyncio
+
+   # Import xử lý lỗi
    from httpmas import RequestsError
    
    try:
