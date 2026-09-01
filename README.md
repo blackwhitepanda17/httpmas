@@ -37,14 +37,6 @@
 
    asyncio.run(main())
 
-   # Import xử lý lỗi
-   from httpmas import RequestsError
-   
-   try:
-       r = requests.get(url)
-       r.raise_for_status()
-   except RequestsError as e:
-       print(e) 
    ```
 
 ## Cài đặt
