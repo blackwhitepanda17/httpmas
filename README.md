@@ -8,18 +8,26 @@
 [![Docs](https://img.shields.io/badge/docs-passing-brightgreen.svg)](https://github.com/dmasntd/httpmas)
 
 ## Sử dụng
- - Nó được thiết kết quen thuộc với đa số người dùng, các bạn có thể dùng theo ý muốn
+ - Nó được thiết kết quen thuộc với đa số người dùng, các bạn có thể dùng theo ý muốn của mình
+ - Nó cũng tương đồng như requests để không cảm thấy khó dùng
  
    ```python
    from httpmas import requests
    from httpmas import asyncio
-   from httpmas import RequestsError
 
    r = requests.get("https://example.com/")
    print(r.status_code, r.text)
 
    url = "https://example.com"
    r = requests.post(url, json={'key': 'val'})
+
+   from httpmas import RequestsError
+   
+   try:
+       r = requests.get(url)
+       r.raise_for_status()
+   except RequestsError as e:
+       print(e) 
    ```
 
 ## Cài đặt
