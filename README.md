@@ -78,6 +78,10 @@
 # Nâng cấp và cập nhật tình trạng
  - Cập nhật lại xử lý nhanh hơn đôi chút, tốt trong môi trường mạng yếu
  - Xử lý lỗi logic lõi tăng cường tốc độ, sức mạnh chịu tải
+ - Thêm xử lý Session, Auth, Cookie giữ đăng nhập
+ - Xử lý lại cách import bất đồng bộ
+ - Nâng cấp chuyển đổi xử lý xuống tầng thấp
+ - Sửa lỗi phải import để ném lỗi thay vì chủ động ném lỗi khi fail
 
 
 # Liên hệ
