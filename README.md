@@ -38,18 +38,12 @@
 
    ```bash
    pip install httpmas
-   
-   # Kiểm tra bằng lệnh
-  
-   httpmas --version
-  
-   # Cần hỗ trợ
-  
-   httpmas --help
-   
-   # Cần xem thông tin
 
-   httpmas --info
+   httpmas --version <-- Lệnh kiểm tra phiên bản hiện tại
+
+   httpmas --help <-- Lệnh xem cách dùng
+
+   httpmas --info <-- Lệnh xem thông tin
    ```
 
 ### Phát triển bởi tôi
