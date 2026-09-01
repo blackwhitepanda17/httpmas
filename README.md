@@ -39,8 +39,6 @@
 
    ```
 
-### Lưu ý 1 chút hiện trên github này chúng tôi chia sẻ là phiên bản đời thấp 2.9.18 dây là bản cũ chúng tôi chia sẻ để các bạn có thể hiểu cách chúng tôi hoạt động, vẫn lên ưu tiên cài ``pip install httpmas`` cách sử dụng của nó thật sự rất thuần requests
-
 ## Cài đặt
  - Hiện tại các bạn có thể cài bằng lệnh sau
 
@@ -71,6 +69,8 @@
 - Các bạn cũng có thể test và báo cáo tốc độ về cho chúng tôi biết để chúng tôi nâng cấp hơn
 
 ## Lưu ý
+  - Bản phát hành 2.9.18 này là bản cũ không lên cài thủ công nếu không dùng mục đích nâng cấp phát triển cùng admin
+  - Vẫn lên cài bằng ``pip install httpmas`` để sử dụng bản mới nhất
   - Môi trường mạng yếu cũng phải có mức độ nếu yếu quá chúng tôi cũng không thể hỗ trợ
   - Chúng tôi cần thời gian phát triển lên hiện tại chỉ có hỗ trợ http1.1
   - Chúng tôi cũng đang tập trung cho tốc độ và ổn định
