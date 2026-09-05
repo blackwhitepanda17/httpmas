@@ -22,37 +22,11 @@ print(r.json())
 
 ---
 
-## ✨ Tính năng nổi bật
-
-| Tính năng | Mô tả |
-|-----------|--------|
-| 🔌 **Zero Dependencies** | Chỉ dùng stdlib Python (socket, ssl, asyncio) |
-| ⚡ **C-Accelerated** | Header parsing, URL encoding tăng tốc bằng C extension |
-| 🔄 **Connection Pooling** | Keep-alive tự động, tái sử dụng socket |
-| 🔁 **Auto Retry** | Retry thông minh với Adaptive Backoff + Happy Eyeballs (RFC 8305) |
-| 🍪 **Cookie Management** | RFC 6265 compliant, tự động lưu/gửi |
-| 🔐 **Authentication** | Basic, Bearer, Digest, API Key |
-| ↪️ **Redirect Handling** | Follow redirects tự động (RFC 7231) |
-| 🌐 **Async Support** | `httpmas.asyncio` với connection pool async |
-| 🎨 **Colorful Errors** | Thông báo lỗi RGB TrueColor trên terminal |
-| 📊 **Network Stats** | EWMA tự học RTT, thích nghi với điều kiện mạng |
-
----
-
 ## 📦 Cài đặt
 
 ```bash
 pip install httpmas
 ```
-
-Hoặc cài từ source (để build C extension):
-
-```bash
-git clone https://github.com/your-username/httpmas.git
-cd httpmas
-pip install -e .
-```
-
 > 💡 **Ghi chú:** C extension sẽ tự động build khi cài. Nếu thất bại, thư viện vẫn hoạt động bình thường với Python fallback.
 
 ---
