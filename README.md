@@ -23,24 +23,22 @@
       "https://httpbin.org/post",
       json={"name": "httpmas", "version": "1.0"}
    )
-
-   # POST form data
+   >>> POST form data
    r = requests.post(
        "https://httpbin.org/post",
        data={"username": "admin", "password": "secret"}
    )
-
    # Custom headers
    r = requests.get(
        "https://api.github.com/repos",
        headers={"Authorization": "Bearer YOUR_TOKEN"}
    )
 
-# Query parameters
-r = requests.get(
-    "https://api.github.com/search/repositories",
-    params={"q": "httpmas", "sort": "stars"}
-)
+   # Query parameters
+   r = requests.get(
+       "https://api.github.com/search/repositories",
+        params={"q": "httpmas", "sort": "stars"}
+   )
 
    # Bất đồng bộ
    from httpmas import asyncio
