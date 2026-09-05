@@ -12,13 +12,37 @@
  - Nó cũng tương đồng như requests để không cảm thấy khó dùng
  
    ```python
+   >>> Sync API
    from httpmas import requests
 
-   r = requests.get("https://example.com/")
-   print(r.status_code, r.text)
+   # GET request
+   r = requests.get("https://httpbin.org/json")
+   print(r.status_code)
+   print(r.json())
 
-   url = "https://example.com"
-   r = requests.post(url, json={'key': 'val'})
+# POST với JSON
+r = requests.post(
+    "https://httpbin.org/post",
+    json={"name": "httpmas", "version": "1.0"}
+)
+
+# POST form data
+r = requests.post(
+    "https://httpbin.org/post",
+    data={"username": "admin", "password": "secret"}
+)
+
+# Custom headers
+r = requests.get(
+    "https://api.github.com/repos",
+    headers={"Authorization": "Bearer YOUR_TOKEN"}
+)
+
+# Query parameters
+r = requests.get(
+    "https://api.github.com/search/repositories",
+    params={"q": "httpmas", "sort": "stars"}
+)
 
    # Bất đồng bộ
    from httpmas import asyncio
