@@ -36,6 +36,20 @@
     print(r.status_code)  # 404, không raise
 
    asyncio.run(main())
+   
+   >>> Duy trì đăng nhập
+   
+   from httpmas import Session
+   
+   with Session as s:
+   s.post("https://example.com/login",
+   data={
+       "username": "admin",
+       "passwork": "secret"
+       })
+   
+   r = s.get("https://example.com/profile")
+   print(r.json())
 
    ```
 
