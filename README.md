@@ -20,23 +20,23 @@
    print(r.status_code)
    print(r.json())
 
-# POST với JSON
-r = requests.post(
-    "https://httpbin.org/post",
-    json={"name": "httpmas", "version": "1.0"}
-)
+   # POST với JSON
+   r = requests.post(
+      "https://httpbin.org/post",
+      json={"name": "httpmas", "version": "1.0"}
+   )
 
-# POST form data
-r = requests.post(
-    "https://httpbin.org/post",
-    data={"username": "admin", "password": "secret"}
-)
+   # POST form data
+   r = requests.post(
+       "https://httpbin.org/post",
+       data={"username": "admin", "password": "secret"}
+   )
 
-# Custom headers
-r = requests.get(
-    "https://api.github.com/repos",
-    headers={"Authorization": "Bearer YOUR_TOKEN"}
-)
+   # Custom headers
+   r = requests.get(
+       "https://api.github.com/repos",
+       headers={"Authorization": "Bearer YOUR_TOKEN"}
+   )
 
 # Query parameters
 r = requests.get(
