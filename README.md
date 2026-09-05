@@ -14,13 +14,11 @@
    ```python
    >>> Sync Requests
    from httpmas import requests
-
-   # GET request
+   >>> GET request
    r = requests.get("https://httpbin.org/json")
    print(r.status_code)
    print(r.json())
-
-   # POST với JSON
+   >>> POST với JSON
    r = requests.post(
       "https://httpbin.org/post",
       json={"name": "httpmas", "version": "1.0"}
