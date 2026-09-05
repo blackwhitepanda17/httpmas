@@ -14,7 +14,7 @@
    ```python
    >>> Sync Requests
    from httpmas import requests
-   >>> GET request
+   >>> GET
    r = requests.get("https://httpbin.org/json")
    print(r.status_code)
    print(r.json())
@@ -38,37 +38,23 @@
        "https://api.github.com/search/repositories",
         params={"q": "httpmas", "sort": "stars"}
    )
-
-   # Bất đồng bộ
+   
+   >>> Async 
    from httpmas import asyncio
-
    async def main():
-    # Auto raise HTTPError khi server trả 4xx/5xx
-    r = await asyncio.requests.get("https://httpbin.org/json")
-    print(r.status_code, r.json())
-
-    # Disable auto-raise
-    r = await asyncio.requests.get(
-        "https://httpbin.org/status/404",
-        raise_on_error=False,
-    )
-    print(r.status_code)  # 404, không raise
-
-   asyncio.run(main())
+       r = await asyncio.requests.get("https://httpbin.org/json")
+       print(r.json())
+    
+    # Multiple requests đồng thời
+       results = await asyncio.requests.gather(
+           asyncio.requests.get("https://httpbin.org/json"),
+           asyncio.requests.get("https://httpbin.org/headers"),
+           asyncio.requests.get("https://api.github.com/users/github"),
+       )
+       for r in results:
+           print(r.status_code)
+    asyncio.run(main())
    
-   >>> Duy trì đăng nhập
-   from httpmas import Session
-   
-   with Session as s:
-   s.post("https://example.com/login",
-   data={
-       "username": "admin",
-       "passwork": "secret"
-       })
-   
-   r = s.get("https://example.com/profile")
-   print(r.json())
-
    ```
 
 ## Cài đặt
