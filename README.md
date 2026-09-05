@@ -28,13 +28,12 @@
        "https://httpbin.org/post",
        data={"username": "admin", "password": "secret"}
    )
-   # Custom headers
+   >>> Custom headers
    r = requests.get(
        "https://api.github.com/repos",
        headers={"Authorization": "Bearer YOUR_TOKEN"}
    )
-
-   # Query parameters
+   >>> Query parameters
    r = requests.get(
        "https://api.github.com/search/repositories",
         params={"q": "httpmas", "sort": "stars"}
@@ -58,7 +57,6 @@
    asyncio.run(main())
    
    >>> Duy trì đăng nhập
-   
    from httpmas import Session
    
    with Session as s:
