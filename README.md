@@ -12,7 +12,7 @@
  - Nó cũng tương đồng như requests để không cảm thấy khó dùng
  
    ```python
-   >>> Sync API
+   >>> Sync Requests
    from httpmas import requests
 
    # GET request
