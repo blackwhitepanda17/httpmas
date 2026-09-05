@@ -2,7 +2,7 @@
 
 [![Python](https://img.shields.io/badge/Python-3.8%2B-blue.svg)](https://python.org)
 [![License](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
-[![Version](https://img.shields.io/badge/Version-11.8.7-orange.svg)](#)
+[![Version](https://img.shields.io/badge/Version-3.5.9-orange.svg)](#)
 
 </div>
 
